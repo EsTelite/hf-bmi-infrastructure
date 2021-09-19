@@ -1,3 +1,4 @@
+/*
 module "hf-bmi-api-gw" {
   source = "terraform-aws-modules/apigateway-v2/aws"
 
@@ -28,6 +29,7 @@ module "hf-bmi-api-gw" {
   {
   })
 }
+*/
 
 locals {
   awsconfig-bucket = format("%s-%s-awsconfig-logs", var.project, var.environment)
