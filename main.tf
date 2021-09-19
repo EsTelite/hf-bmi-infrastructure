@@ -32,7 +32,7 @@ module "hf-bmi-api-gw" {
 */
 
 locals {
-  lambda-bucket = format("%s-%s-lambda-bucket", var.project, var.environment)
+  lambda-bucket = format("%s-%s-lambda-bucket", var.environment,var.project)
 }
 resource "aws_s3_bucket" "lambda-bucket" {
   bucket = format("%s-%s-lambda-bucket",var.environment,var.project)
