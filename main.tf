@@ -4,7 +4,7 @@ module "hf-bmi-api-gw" {
   name          = format("%s-%s-bmi-api-gateway",var.environment,var.project)
   description   = "HF API Gateway"
   protocol_type = "HTTP"
-  domain_name = "hf.ssdindo.com"
+  domain_name = "hf-bmi.ssdindo.com"
   domain_name_certificate_arn = "arn:aws:acm:ap-south-1:237612645500:certificate/44e3f37f-c455-43a3-8719-9275e7551a95"
   cors_configuration = {
     allow_headers = ["*"]
