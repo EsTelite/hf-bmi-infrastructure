@@ -77,11 +77,6 @@ jobs:
     - name: Terraform Init
       run: terraform init
 
-    - uses: actions/cache@v2
-      name: Cache plugin dir
-      with:
-        path: ~/.tflint.d/plugins
-        key: ${{ matrix.os }}-tflint-${{ hashFiles('.tflint.hcl') }}
 
     # Generates an execution plan for Terraform
     - name: Terraform Plan
@@ -120,3 +115,9 @@ jobs:
 
     - name: Run TFLint
       run: tflint -f compact
+
+    - uses: actions/cache@v2
+      name: Cache plugin dir
+      with:
+        path: ~/.tflint.d/plugins
+        key: ${{ matrix.os }}-tflint-${{ hashFiles('.tflint.hcl') }}

@@ -37,6 +37,7 @@ locals {
 resource "aws_s3_bucket" "lambda-bucket" {
   bucket = format("%s-%s-lambda-bucket",var.environment,var.project)
   policy = templatefile("${path.cwd}/template/s3-restrict-only-https.json", { "bucket-name" = local.lambda-bucket })
+  block_public_acls   = true
   server_side_encryption_configuration {
     rule {
       apply_server_side_encryption_by_default {
