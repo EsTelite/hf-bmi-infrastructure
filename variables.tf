@@ -2,7 +2,7 @@ variable "environment" {
   default = "prod"
 }
 variable "project" {
-  default = "hp"
+  default = "hf"
 }
 locals {
   common_tags = {
