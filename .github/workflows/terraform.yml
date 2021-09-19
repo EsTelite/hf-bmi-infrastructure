@@ -54,8 +54,12 @@ jobs:
   terraform:
     needs: [tflint]
     name: 'Terraform'
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
     environment: production
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
 
     # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
     defaults:
