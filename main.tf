@@ -40,6 +40,7 @@ module "lambda_function" {
   runtime       = "python3.8"
   source_path = "template/lambda-template-python"
   ignore_source_code_hash = true
+  publish = true
   allowed_triggers = {
     AllowExecutionFromAPIGateway = {
       service    = "apigateway"
