@@ -32,11 +32,11 @@ module "hf-bmi-api-gw" {
 */
 
 locals {
-  awsconfig-bucket = format("%s-%s-awsconfig-logs", var.project, var.environment)
+  lambda-bucket = format("%s-%s-lambda-bucket", var.project, var.environment)
 }
 resource "aws_s3_bucket" "lambda-bucket" {
   bucket = format("%s-%s-lambda-bucket",var.environment,var.project)
-  policy = templatefile("${path.cwd}/template/s3-restrict-only-https.json", { "bucket-name" = local.awsconfig-bucket })
+  policy = templatefile("${path.cwd}/template/s3-restrict-only-https.json", { "bucket-name" = local.lambda-bucket })
   server_side_encryption_configuration {
     rule {
       apply_server_side_encryption_by_default {
