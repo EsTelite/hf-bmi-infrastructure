@@ -34,12 +34,14 @@ module "hf-bmi-api-gw" {
 
 module "lambda_function" {
   source = "terraform-aws-modules/lambda/aws"
+  version = "2.17.0"
   function_name = format("%s-%s-bmi",var.environment,var.project)
   description   = "HF Lambda for BMI Calculator"
   handler       = "main.lambda_handler"
   runtime       = "python3.8"
   source_path = "template/lambda-template-python"
   ignore_source_code_hash = true
+  recreate_missing_package = false
   publish = true
   allowed_triggers = {
     AllowExecutionFromAPIGateway = {
