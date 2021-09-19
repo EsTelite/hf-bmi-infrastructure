@@ -90,7 +90,7 @@ jobs:
 
   tflint:
     runs-on: ubuntu-latest
-    environment: production
+    environment: development
 
     steps:
     - uses: actions/checkout@v2
