@@ -32,12 +32,12 @@ module "hf-bmi-api-gw" {
 
 module "lambda_function" {
   source = "terraform-aws-modules/lambda/aws"
-
   function_name = format("%s-%s-bmi",var.environment,var.project)
   description   = "Far Away"
-  handler       = "index.lambda_handler"
+  handler       = "main.lambda_handler"
   runtime       = "python3.8"
   source_path = "template/lambda-template-python"
+  ignore_source_code_hash = true
   tags = merge(local.common_tags,
   {
   })
