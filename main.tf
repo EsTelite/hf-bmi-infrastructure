@@ -36,7 +36,7 @@ module "lambda_function" {
   description   = "Far Away"
   handler       = "index.lambda_handler"
   runtime       = "python3.8"
-  source_path = "../template/lambda-template-python"
+  source_path = "template/lambda-template-python"
   tags = merge(local.common_tags,
   {
   })
