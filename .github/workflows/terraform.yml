@@ -52,6 +52,7 @@ on:
 
 jobs:
   terraform:
+    needs: [tflint]
     name: 'Terraform'
     runs-on: ubuntu-latest
     environment: production
