@@ -35,7 +35,7 @@ module "hf-bmi-api-gw" {
 module "lambda_function" {
   source = "terraform-aws-modules/lambda/aws"
   function_name = format("%s-%s-bmi",var.environment,var.project)
-  description   = "Far Away"
+  description   = "HF Lambda for BMI Calculator"
   handler       = "main.lambda_handler"
   runtime       = "python3.8"
   source_path = "template/lambda-template-python"
